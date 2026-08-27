@@ -1,0 +1,22 @@
+CC = gcc
+CFLAGS = -Wall
+
+OBJ = main.o add.o
+
+
+.PHONY: all clean
+app: $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ) -o app
+
+%.o : %.c %.h
+	$(CC) $(CFLAGS) $< -c -o $@
+
+clean:
+	rm -rf app *.o
+
+helloTest: abc def
+	@echo $<
+abc:
+	@#echo abc
+def:
+	@#echo def
